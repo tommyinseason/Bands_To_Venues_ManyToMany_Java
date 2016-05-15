@@ -17,13 +17,13 @@ public class Band {
   public int getId() {
     return id;
   }
-  // 
-  // public static List<Band>all() {
-  //   String sql = "SELECT id, name FROM bands";
-  //   try(Connection con = DB.sql2o.open()) {
-  //     return con.createQuery(sql).executeAndFetch(Band.class);
-  //   }
-  // }
+  
+  public static List<Band>all() {
+    String sql = "SELECT id, name FROM bands";
+    try(Connection con = DB.sql2o.open()) {
+      return con.createQuery(sql).executeAndFetch(Band.class);
+    }
+  }
   //
   // @Override
   // public boolean equals(Object otherBand) {
