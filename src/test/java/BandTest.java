@@ -31,11 +31,19 @@ public class BandTest {
     Band secondBand = new Band("ACDC");
     assertTrue(firstBand.equals(secondBand));
   }
-  // @Test
-  // public void save_savesObjectIntoDatabase_true() {
-  //   Band myBand = new Band("ACDC");
-  //   myBand.save();
-  //   assertTrue(Band.all().get(0).equals(myBand));
-  // }
+  @Test
+  public void save_savesObjectIntoDatabase_true() {
+    Band myBand = new Band("ACDC");
+    myBand.save();
+    assertTrue(Band.all().get(0).equals(myBand));
+  }
+
+  @Test
+  public void save_assignsIdToObject_int() {
+    Band myBand = new Band("ACDC");
+    myBand.save();
+    Band savedBand = Band.all().get(0);
+    assertEquals(myBand.getId(), savedBand.getId());
+  }
 
 }
