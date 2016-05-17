@@ -21,9 +21,21 @@ public class BandTest {
     assertEquals("ACDC", myBand.getName());
   }
 
-  @Test
-  public void all_emptyAtFirst_0() {
-    assertEquals(0, Band.all().size());
-  }
+  // @Test
+  // public void all_emptyAtFirst_0() {
+  //   assertEquals(0, Band.all().size());
+  // }
+  // @Test
+  // public void equals_returnsTrueIfNamesAretheSame_true() {
+  //   Band firstBand = new Band ("ACDC");
+  //   Band secondBand = new Band("ACDC");
+  //   assertEquals(firstBand.equals(secondBand));
+  // }
+  // @Test
+  // public void save_savesObjectIntoDatabase_true() {
+  //   Band myBand = new Band("ACDC");
+  //   myBand.save();
+  //   assertTrue(Band.all().get(0).equals(myBand));
+  // }
 
 }
