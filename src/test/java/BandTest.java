@@ -21,10 +21,10 @@ public class BandTest {
     assertEquals("ACDC", myBand.getName());
   }
 
-  // @Test
-  // public void all_emptyAtFirst_0() {
-  //   assertEquals(0, Band.all().size());
-  // }
+  @Test
+  public void all_emptyAtFirst_0() {
+    assertEquals(0, Band.all().size());
+  }
   // @Test
   // public void equals_returnsTrueIfNamesAretheSame_true() {
   //   Band firstBand = new Band ("ACDC");
