@@ -59,14 +59,14 @@ public class BandTest {
     myBand.update("ACDC");
     assertEquals("ACDC", Band.find(myBand.getId()).getName());
   }
-  @Test
-  public void delete_deletesBand_true() {
-    Band myBand = new Band("ACDC");
-    myBand.save();
-    int myId = myBand.getId();
-    myBand.delete();
-    assertEquals(null, Band.find(myId));
-  }
+  // @Test
+  // public void delete_deletesBand_true() {
+  //   Band myBand = new Band("ACDC");
+  //   myBand.save();
+  //   int myId = myBand.getId();
+  //   myBand.delete();
+  //   assertEquals(null, Band.find(myId));
+  // }
   // @Test
   // public void addVenue_addsVenueToBand() {
   //   Band myBand = new Band("ACDC");
