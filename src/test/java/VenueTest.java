@@ -16,24 +16,24 @@ public class VenueTest {
     assertEquals(true, myVenue instanceof Venue);
   }
 
-  // @Test
-  // public void getName_instantiatesWithName_string() {
-  //   Venue myVenue = new Venue("CBGB");
-  //   assertEquals("CBGB", myVenue.getName());
-  // }
-  //
-  // @Test
-  // public void all_emptyAtFirst() {
-  //   assertEquals(Venue.all().size(), 0);
-  // }
-  //
-  // @Test
-  // public void equals_returnsTrueIfNamesAreTheSame_true() {
-  //   Venue firstVenue = new Venue("CBGB");
-  //   Venue secondVenue = new Venue("CBGB");
-  //   assertTrue(firstVenue.equals(secondVenue));
-  // }
-  //
+  @Test
+  public void getName_instantiatesWithName_string() {
+    Venue myVenue = new Venue("CBGB");
+    assertEquals("CBGB", myVenue.getName());
+  }
+
+  @Test
+  public void all_emptyAtFirst() {
+    assertEquals(Venue.all().size(), 0);
+  }
+
+  @Test
+  public void equals_returnsTrueIfNamesAreTheSame_true() {
+    Venue firstVenue = new Venue("CBGB");
+    Venue secondVenue = new Venue("CBGB");
+    assertTrue(firstVenue.equals(secondVenue));
+  }
+
   // @Test
   // public void save_savesObjectIntoDatabase_true() {
   //   Venue myVenue = new Venue("CBGB");
