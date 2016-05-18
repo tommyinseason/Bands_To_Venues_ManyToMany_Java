@@ -59,36 +59,37 @@ public class BandTest {
     myBand.update("ACDC");
     assertEquals("ACDC", Band.find(myBand.getId()).getName());
   }
-  // @Test
-  // public void delete_deletesBand_true() {
-  //   Band myBand = new Band("ACDC");
-  //   myBand.save();
-  //   int myId = myBand.getId();
-  //   myBand.delete();
-  //   assertEquals(null, Band.find(myId));
-  // }
-  // @Test
-  // public void addVenue_addsVenueToBand() {
-  //   Band myBand = new Band("ACDC");
-  //   myBand.save();
-  //   Venue myVenue = new Venue("CBGB");
-  //   myVenue.save();
-  //   myBand.addVenue(myVenue);
-  //   Band savedBand = myVenue.getBands().get(0);
-  //   assertTrue(myBand.equals(savedBand));
-  // }
-  //
-  // @Test
-  // public void getVenues_returnsAllVenues_List() {
-  //   Band myBand = new Band("ACDC");
-  //   myBand.save();
-  //   Venue myVenue = new Venue("CBGB");
-  //   myVenue.save();
-  //   myBand.addVenue(myVenue);
-  //   List savedVenues = myBand.getVenues();
-  //   assertEquals(1, savedVenues.size());
-  // }
-  //
+
+  @Test
+  public void addVenue_addsVenueToBand() {
+    Band myBand = new Band("ACDC");
+    myBand.save();
+    Venue myVenue = new Venue("CBGB");
+    myVenue.save();
+    myBand.addVenue(myVenue);
+    Band savedBand = myVenue.getBands().get(0);
+    assertTrue(myBand.equals(savedBand));
+  }
+
+  @Test
+  public void getVenues_returnsAllVenues_List() {
+    Band myBand = new Band("ACDC");
+    myBand.save();
+    Venue myVenue = new Venue("CBGB");
+    myVenue.save();
+    myBand.addVenue(myVenue);
+    List savedVenues = myBand.getVenues();
+    assertEquals(1, savedVenues.size());
+  }
+
+    // @Test
+    // public void delete_deletesBand_true() {
+    //   Band myBand = new Band("ACDC");
+    //   myBand.save();
+    //   int myId = myBand.getId();
+    //   myBand.delete();
+    //   assertEquals(null, Band.find(myId));
+    // }
   // @Test
   // public void delete_deletesAllBandAndVenueAssociations() {
   //   Venue myVenue = new Venue("ACDC");

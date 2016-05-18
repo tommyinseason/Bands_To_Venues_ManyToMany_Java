@@ -1,4 +1,4 @@
-<h1>All bands</h1>
+<h1 class="jumbotron">All bands</h1>
 
 <ul>
   #foreach ($band in $bands)
@@ -9,7 +9,7 @@
 <p>Add a new band:</p>
 
 <form action="/bands" method="post">
-  <label for="name">Category name</label>
+  <label for="name">Band Name</label>
   <input id="name" name="name" type="text">
   <button type="submit" class="btn btn-success">Add Band</button>
 </form>

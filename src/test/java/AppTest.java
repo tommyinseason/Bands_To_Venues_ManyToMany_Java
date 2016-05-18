@@ -38,4 +38,72 @@ public class AppTest extends FluentTest {
 //     submit(".btn");
 //     assertThat(pageSource()).contains("ACDC");
 //  }
+  @Test
+  public void venueIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Venues"));
+    fill("#name").with("CBGB");
+    submit(".btn");
+    assertThat(pageSource()).contains("CBGB");
+  }
+
+  @Test
+  public void bandIsDeleted() {
+    Band testBand = new Band("ACDC");
+    testBand.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
+    goTo(url);
+    submit("#delete");
+    goTo(url);
+    assertThat(pageSource()).contains("$band.getName()");
+  }
+
+  @Test
+  public void bandShowPageDisplaysName() {
+    Band testBands = new Band("ACDC");
+    testBands.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBands.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("ACDC");
+  }
+  // 
+  // @Test
+  // public void taskShowPageDisplaysDescription() {
+  //   Task testTask = new Task("Mow the lawn");
+  //   testTask.save();
+  //   String url = String.format("http://localhost:4567/tasks/%d", testTask.getId());
+  //   goTo(url);
+  //   assertThat(pageSource()).contains("Mow the lawn");
+  // }
+
+  // @Test
+  // public void taskIsAddedToCategory() {
+  //   Category testCategory = new Category("Household chores");
+  //   testCategory.save();
+  //   Task testTask = new Task("Mow the lawn");
+  //   testTask.save();
+  //   String url = String.format("http://localhost:4567/categories/%d", testCategory.getId());
+  //   goTo(url);
+  //   fillSelect("#task_id").withText("Mow the lawn");
+  //   submit(".btn");
+  //   assertThat(pageSource()).contains("<li>");
+  //   assertThat(pageSource()).contains("Mow the lawn");
+  // }
+  //
+  // @Test
+  // public void categoryIsAddedToTask() {
+  //   Category testCategory = new Category("Household chores");
+  //   testCategory.save();
+  //   Task testTask = new Task("Mow the lawn");
+  //   testTask.save();
+  //   String url = String.format("http://localhost:4567/tasks/%d", testTask.getId());
+  //   goTo(url);
+  //   fillSelect("#category_id").withText("Household chores");
+  //   submit(".btn");
+  //   assertThat(pageSource()).contains("<li>");
+  //   assertThat(pageSource()).contains("Household chores");
+  // }
+
+
+
 }
