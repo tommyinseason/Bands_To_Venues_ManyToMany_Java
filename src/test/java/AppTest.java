@@ -20,9 +20,22 @@ public class AppTest extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
-  // @Test
-  // public void rootTest() {
-  //   goTo("http://localhost:4567/");
-  //   assertThat(pageSource()).contains("Bands");
-  // }
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
+
+
+  @Test
+  public void rootTest() {
+    goTo("http://localhost:4567/");
+    assertThat(pageSource()).contains("Bands");
+  }
+
+  @Test
+  public void bandIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Bands"));
+    fill("#name").with("Household chores");
+    submit(".btn");
+    assertThat(pageSource()).contains("Household chores");
+ }
 }
