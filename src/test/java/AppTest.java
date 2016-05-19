@@ -68,15 +68,15 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("ACDC");
   }
 
-  // @Test
-  // public void venueShowPageDisplaysName() {
-  //   Venue testVenue = new Venue("CBGB");
-  //   testVenue.save();
-  //   String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("CBGB");
-  // }
-  //
+  @Test
+  public void venueShowPageDisplaysName() {
+    Venue testVenue = new Venue("CBGB");
+    testVenue.save();
+    String url = String.format("http://localhost:4567/venues/%d", testVenue.getId());
+    goTo(url);
+    assertThat(pageSource()).contains("CBGB");
+  }
+
   // @Test
   // public void venueIsAddedToBand() {
   //   Band testBand = new Band("ACDC");
