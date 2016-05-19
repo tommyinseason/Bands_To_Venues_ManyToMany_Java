@@ -38,15 +38,15 @@ public class AppTest extends FluentTest {
     submit(".btn");
     assertThat(pageSource()).contains("ACDC");
   }
-  
-  // @Test
-  // public void venueIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Venues"));
-  //   fill("#name").with("CBGB");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("CBGB");
-  // }
+
+  @Test
+  public void venueIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Venues"));
+    fill("#name").with("CBGB");
+    submit(".btn");
+    assertThat(pageSource()).contains("CBGB");
+  }
   //
   // @Test
   // public void bandIsDeleted() {
