@@ -82,24 +82,24 @@ public class BandTest {
     assertEquals(1, savedVenues.size());
   }
 
-    // @Test
-    // public void delete_deletesBand_true() {
-    //   Band myBand = new Band("ACDC");
-    //   myBand.save();
-    //   int myId = myBand.getId();
-    //   myBand.delete();
-    //   assertEquals(null, Band.find(myId));
-    // }
-  // @Test
-  // public void delete_deletesAllBandAndVenueAssociations() {
-  //   Venue myVenue = new Venue("ACDC");
-  //   myVenue.save();
-  //   Band myBand = new Band("CBGB");
-  //   myBand.save();
-  //   myBand.addVenue(myVenue);
-  //   myBand.delete();
-  //   assertEquals(0, myVenue.getBands().size());
-  // }
+  @Test
+  public void delete_deletesBand_true() {
+    Band myBand = new Band("ACDC");
+    myBand.save();
+    int myId = myBand.getId();
+    myBand.delete();
+    assertEquals(null, Band.find(myId));
+  }
 
+  @Test
+  public void delete_deletesAllBandAndVenueAssociations() {
+    Venue myVenue = new Venue("ACDC");
+    myVenue.save();
+    Band myBand = new Band("CBGB");
+    myBand.save();
+    myBand.addVenue(myVenue);
+    myBand.delete();
+    assertEquals(0, myVenue.getBands().size());
+  }
 
 }

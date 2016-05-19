@@ -5,6 +5,7 @@ import static spark.Spark.*;
 
 
 public class App {
+
   public static void main(String[] args) {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
@@ -49,7 +50,6 @@ public class App {
       HashMap<String, Object> model = new HashMap<String, Object>();
       Venue venue = Venue.find(Integer.parseInt(request.params("id")));
       model.put("venue", venue);
-      model.put("allBands", Band.all());
       model.put("template", "templates/venue.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -73,15 +73,15 @@ public class App {
       return null;
     });
 
-    post("/add_bands", (request, response) -> {
-      int venueId = Integer.parseInt(request.queryParams("venue_id"));
-      int bandId = Integer.parseInt(request.queryParams("band_id"));
-      Band band = Band.find(bandId);
-      Venue venue = Venue.find(venueId);
-      venue.addBand(band);
-      response.redirect("/venues/" + venueId);
-      return null;
-    });
+    // post("/add_bands", (request, response) -> {
+    //   int venueId = Integer.parseInt(request.queryParams("venue_id"));
+    //   int bandId = Integer.parseInt(request.queryParams("band_id"));
+    //   Band band = Band.find(bandId);
+    //   Venue venue = Venue.find(venueId);
+    //   venue.addBand(band);
+    //   response.redirect("/venues/" + venueId);
+    //   return null;
+    // });
 
     get("/bands/:id/edit", (request,response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
@@ -108,7 +108,7 @@ public class App {
       return null;
     });
 
-  
+
 
   }
 }

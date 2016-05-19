@@ -18,7 +18,7 @@ public class Band {
     return id;
   }
 
-  public static List<Band>all() {
+  public static List<Band> all() {
     String sql = "SELECT id, name FROM bands";
     try(Connection con = DB.sql2o.open()) {
       return con.createQuery(sql).executeAndFetch(Band.class);
@@ -86,7 +86,7 @@ public class Band {
       for (Integer venueId : venueIds) {
         String venueQuery = "SELECT * FROM venues WHERE id = :venueid";
         Venue venue = con.createQuery(venueQuery)
-          .addParameter("venueId", venueId)
+          .addParameter("venueid", venueId)
           .executeAndFetchFirst(Venue.class);
         venues.add(venue);
       }
@@ -103,7 +103,7 @@ public class Band {
 
       String joinDeleteQuery = "DELETE FROM bands_venues WHERE bandid = :bandid;";
       con.createQuery(joinDeleteQuery)
-      .addParameter("bandId", this.getId())
+      .addParameter("bandid", this.getId())
       .executeUpdate();
     }
   }
