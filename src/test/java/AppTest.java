@@ -47,18 +47,18 @@ public class AppTest extends FluentTest {
     submit(".btn");
     assertThat(pageSource()).contains("CBGB");
   }
-  //
-  // @Test
-  // public void bandIsDeleted() {
-  //   Band testBand = new Band("ACDC");
-  //   testBand.save();
-  //   String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
-  //   goTo(url);
-  //   submit("#delete");
-  //   goTo(url);
-  //   assertThat(pageSource()).contains("$band.getName()");
-  // }
-  //
+  
+  @Test
+  public void bandIsDeleted() {
+    Band testBand = new Band("ACDC");
+    testBand.save();
+    String url = String.format("http://localhost:4567/bands/%d", testBand.getId());
+    goTo(url);
+    submit("#delete");
+    goTo(url);
+    assertThat(pageSource()).contains("$band.getName()");
+  }
+
   // @Test
   // public void bandShowPageDisplaysName() {
   //   Band testBands = new Band("ACDC");
